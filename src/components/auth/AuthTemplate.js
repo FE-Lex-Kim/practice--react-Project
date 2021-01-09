@@ -20,7 +20,7 @@ const AuthTemplateBlock = styled.div`
 `;
 
 const WhiteBox = styled.div`
-  .logo-area{
+  .logo-area {
     display: block;
     text-align: center;
     padding-bottom: 2rem;
@@ -35,16 +35,16 @@ const WhiteBox = styled.div`
   border-radius: 3px;
 `;
 
-const AuthTemplate = ({children}) => {
+const AuthTemplate = ({ children }) => {
   return (
-  <AuthTemplateBlock>
-    <WhiteBox>
-      <div className='logo-area'>
-        <Link to='/'>REACTERS</Link>
-      </div>
-      {children}
-    </WhiteBox>
-  </AuthTemplateBlock>
+    <AuthTemplateBlock>
+      <WhiteBox>
+        <div className="logo-area">
+          <Link to="/">REACTERS</Link>
+        </div>
+        {children}
+      </WhiteBox>
+    </AuthTemplateBlock>
   );
 };
 
