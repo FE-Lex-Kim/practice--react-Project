@@ -1,7 +1,6 @@
 import React from 'react';
-
 const WritePage = () => {
-  return <div>글쓰기</div>;
+  return <p>글쓰기</p>;
 };
 
 export default WritePage;

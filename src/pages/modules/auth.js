@@ -1,14 +1,48 @@
 import { createAction, handleActions } from 'redux-actions';
 
-const SAMPLE_ACTION = 'auth/SAMPLE_ACTION';
+//액션 함수
+const CHANGE_FIELD = 'auth/CHANGE_FIELD';
+const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 
-export const sampleAction = createAction(SAMPLE_ACTION);
+// 액션 생성함수
+export const changeField = createAction(
+  CHANGE_FIELD,
+  ({ form, key, value }) => ({
+    form,
+    key,
+    value,
+  }),
+);
 
-const initalState = {};
+export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 
+// 초기값
+const initalState = {
+  register: {
+    username: '',
+    password: '',
+    passwordConfirm: '',
+  },
+  login: {
+    username: '',
+    password: '',
+  },
+};
+
+// 리듀서
 const auth = handleActions(
   {
-    [SAMPLE_ACTION]: (state, action) => state,
+    [CHANGE_FIELD]: (state, { payload }) => ({
+      ...state,
+      [payload.form]: {
+        ...state[payload.form],
+        [payload.key]: payload.value,
+      },
+    }),
+    [INITIALIZE_FORM]: (state, payload) => ({
+      ...state,
+      [payload.form]: initalState[payload.form],
+    }),
   },
   initalState,
 );
